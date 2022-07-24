@@ -1,4 +1,4 @@
-require rust-tools-cross-canadian.inc
+require rust-tools.inc
 require rust-source.inc
 require rust-snapshot.inc
 
