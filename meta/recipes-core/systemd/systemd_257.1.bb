@@ -429,6 +429,7 @@ PACKAGE_BEFORE_PN = "\
     ${PN}-mime \
     ${PN}-networkd \
     ${PN}-rpm-macros \
+    ${PN}-systemctl \
     ${PN}-udev-rules \
     ${PN}-vconsole-setup \
     ${PN}-zsh-completion \
@@ -678,13 +679,8 @@ CONFFILES:${PN} = "${sysconfdir}/systemd/coredump.conf \
 "
 
 FILES:${PN} = " ${base_bindir}/* \
-                ${base_sbindir}/shutdown \
-                ${base_sbindir}/halt \
-                ${base_sbindir}/poweroff \
-                ${base_sbindir}/runlevel \
                 ${base_sbindir}/telinit \
                 ${base_sbindir}/resolvconf \
-                ${base_sbindir}/reboot \
                 ${base_sbindir}/init \
                 ${datadir}/dbus-1/services \
                 ${datadir}/dbus-1/system-services \
@@ -749,9 +745,19 @@ FILES:${PN} = " ${base_bindir}/* \
 
 FILES:${PN}-dev += "${base_libdir}/security/*.la ${datadir}/dbus-1/interfaces/ ${sysconfdir}/rpm/macros.systemd"
 
+FILES:${PN}-systemctl = " \
+                ${bindir}/systemctl \
+                ${base_sbindir}/shutdown \
+                ${base_sbindir}/halt \
+                ${base_sbindir}/poweroff \
+                ${base_sbindir}/runlevel \
+                ${base_sbindir}/reboot \
+"
+
 RDEPENDS:${PN} += "kmod dbus util-linux-mount util-linux-umount udev (= ${EXTENDPKGV}) systemd-udev-rules util-linux-agetty util-linux-fsck util-linux-swaponoff"
 RDEPENDS:${PN} += "${@bb.utils.contains('PACKAGECONFIG', 'serial-getty-generator', '', 'systemd-serialgetty', d)}"
 RDEPENDS:${PN} += "volatile-binds"
+RDEPENDS:${PN} += "${PN}-systemctl"
 
 RRECOMMENDS:${PN} += "${PN}-extra-utils \
                       udev-hwdb \
@@ -867,13 +873,14 @@ python do_warn_musl() {
 }
 addtask warn_musl before do_configure
 
-ALTERNATIVE:${PN} = "halt reboot shutdown poweroff \
-                     ${@bb.utils.contains('PACKAGECONFIG', 'sysvinit', 'runlevel', '', d)} \
+ALTERNATIVE:${PN} = "${@bb.utils.contains('PACKAGECONFIG', 'sysvinit', 'runlevel', '', d)} \
                      ${@bb.utils.contains('PACKAGECONFIG', 'resolved', 'resolv-conf', '', d)}"
 
 ALTERNATIVE_TARGET[resolv-conf] = "${sysconfdir}/resolv-conf.systemd"
 ALTERNATIVE_LINK_NAME[resolv-conf] = "${sysconfdir}/resolv.conf"
 ALTERNATIVE_PRIORITY[resolv-conf] ?= "50"
+
+ALTERNATIVE:${PN}-systemctl = "halt reboot shutdown poweroff runlevel"
 
 ALTERNATIVE_TARGET[halt] = "${base_bindir}/systemctl"
 ALTERNATIVE_LINK_NAME[halt] = "${base_sbindir}/halt"
