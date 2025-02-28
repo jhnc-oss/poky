@@ -22,6 +22,7 @@ import pickle
 from collections import defaultdict
 from collections.abc import Mapping
 import bb.utils
+import bb
 from bb import PrefixLoggerAdapter
 import re
 import shutil
@@ -420,6 +421,8 @@ class Cache(object):
         self.logger.debug("Cache dir: %s", self.cachedir)
         bb.utils.mkdirhier(self.cachedir)
 
+        bb.server.process.serverlog("PrepareCache 1")
+
         cache_ok = True
         if self.caches_array:
             for cache_class in self.caches_array:
@@ -428,12 +431,19 @@ class Cache(object):
                 self.logger.debug2("Checking if %s exists: %r", cachefile, cache_exists)
                 cache_ok = cache_ok and cache_exists
                 cache_class.init_cacheData(self)
+
+        bb.server.process.serverlog("PrepareCache 2")
         if cache_ok:
+            bb.server.process.serverlog("PrepareCache 2.1")
             loaded = self.load_cachefile(progress)
         elif os.path.isfile(self.cachefile):
+            bb.server.process.serverlog("PrepareCache 2.2")
             self.logger.info("Out of date cache found, rebuilding...")
         else:
+            bb.server.process.serverlog("PrepareCache 2.3")
             self.logger.debug("Cache file %s not found, building..." % self.cachefile)
+
+        bb.server.process.serverlog("PrepareCache 3")
 
         # We don't use the symlink, its just for debugging convinience
         if self.mc:
@@ -441,12 +451,16 @@ class Cache(object):
         else:
             symlink = os.path.join(self.cachedir, "bb_cache.dat")
 
+        bb.server.process.serverlog("PrepareCache 4")
+
         if os.path.exists(symlink) or os.path.islink(symlink):
             bb.utils.remove(symlink)
         try:
             os.symlink(os.path.basename(self.cachefile), symlink)
         except OSError:
             pass
+
+        bb.server.process.serverlog("PrepareCache 5")
 
         return loaded
 
@@ -464,6 +478,8 @@ class Cache(object):
 
     def load_cachefile(self, progress):
         previous_progress = 0
+
+        bb.server.process.serverlog("LoadCache 1")
 
         for cache_class in self.caches_array:
             cachefile = self.getCacheFile(cache_class.cachefile)
@@ -485,6 +501,8 @@ class Cache(object):
                     self.logger.info('Bitbake version mismatch, rebuilding...')
                     return 0
 
+                bb.server.process.serverlog("LoadCache 2")
+
                 # Load the rest of the cache file
                 current_progress = 0
                 while cachefile:
@@ -505,10 +523,15 @@ class Cache(object):
                     else:
                         self.depends_cache[key] = [value]
                     # only fire events on even percentage boundaries
+                    bb.server.process.serverlog("LoadCache 3")
+
                     current_progress = cachefile.tell() + previous_progress
                     progress(cachefile.tell() + previous_progress)
+                    bb.server.process.serverlog("LoadCache 4")
 
                 previous_progress += current_progress
+
+        bb.server.process.serverlog("LoadCache 5")
 
         return len(self.depends_cache)
 
@@ -674,9 +697,14 @@ class Cache(object):
         Save the cache
         Called from the parser when complete (or exiting)
         """
+
+        bb.server.process.serverlog("Cache sync A")
+
         if self.cacheclean:
             self.logger.debug2("Cache is clean, not saving.")
             return
+
+        bb.server.process.serverlog("Cache sync B")
 
         for cache_class in self.caches_array:
             cache_class_name = cache_class.__name__
@@ -693,8 +721,12 @@ class Cache(object):
                             p.dump(key)
                             p.dump(info)
 
+        bb.server.process.serverlog("Cache sync C")
+
         del self.depends_cache
         SiggenRecipeInfo.reset()
+
+        bb.server.process.serverlog("Cache sync D")
 
     @staticmethod
     def mtime(cachefile):
@@ -749,22 +781,36 @@ class MulticonfigCache(Mapping):
         previous_percent = 0
         self.__caches = {}
 
+        bb.server.process.serverlog("MulticonfigCache initA")
+
         for mc, mcdata in databuilder.mcdata.items():
             self.__caches[mc] = Cache(databuilder, mc, data_hash, caches_array)
 
             cachesize += self.__caches[mc].cachesize()
 
+        bb.server.process.serverlog("MulticonfigCache initB")
+
         bb.event.fire(bb.event.CacheLoadStarted(cachesize), databuilder.data)
         loaded = 0
 
+        bb.server.process.serverlog("MulticonfigCache initC")
+
         for c in self.__caches.values():
+            bb.server.process.serverlog("MulticonfigCache initC1")
             SiggenRecipeInfo.reset()
+            bb.server.process.serverlog("MulticonfigCache initC2")
             loaded += c.prepare_cache(progress)
+            bb.server.process.serverlog("MulticonfigCache initC3")
             previous_progress = current_progress
+            bb.server.process.serverlog("MulticonfigCache initC4")
+
+        bb.server.process.serverlog("MulticonfigCache initD")
 
         # Note: depends cache number is corresponding to the parsing file numbers.
         # The same file has several caches, still regarded as one item in the cache
         bb.event.fire(bb.event.CacheLoadCompleted(cachesize, loaded), databuilder.data)
+
+        bb.server.process.serverlog("MulticonfigCache initE")
 
     def __len__(self):
         return len(self.__caches)
