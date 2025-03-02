@@ -70,7 +70,7 @@ python __anonymous () {
     mlprefix = d.getVar("MLPREFIX")
     for lib in d.getVar('BOOST_LIBS').split():
         extras.append("--with-%s" % lib)
-        pkg = "boost-%s" % (lib.replace("_", "-"))
+        pkg = "%s-%s" % (d.getVar("BPN"), lib.replace("_", "-"))
         if "-native" in pn:
             pkg = pkg + "-native"
         packages.append(mlprefix + pkg)
@@ -87,9 +87,9 @@ python __anonymous () {
 FILES:${PN}-graph_parallel = "${libdir}/libboost_graph_parallel.so.*"
 FILES:${PN}-locale = "${libdir}/libboost_locale.so.*"
 FILES:${PN}-mpi = "${libdir}/mpi.so ${libdir}/libboost_mpi*.so.*"
-FILES:boost-serialization = "${libdir}/libboost_serialization*.so.* \
+FILES:${PN}-serialization = "${libdir}/libboost_serialization*.so.* \
 	${libdir}/libboost_wserialization*.so.*"
-FILES:boost-test = "${libdir}/libboost_prg_exec_monitor*.so.* \
+FILES:${PN}-test = "${libdir}/libboost_prg_exec_monitor*.so.* \
 	${libdir}/libboost_unit_test_framework*.so.*"
 
 # -dev last to pick up the remaining stuff
