@@ -181,6 +181,7 @@ python base_do_unpack() {
     except bb.fetch2.BBFetchException as e:
         bb.fatal("Bitbake Fetcher Error: " + repr(e))
 
+
     if basedir and os.path.exists(unpackdir + '/' + basedir):
         # Compatibility magic to ensure ${WORKDIR}/git and ${WORKDIR}/${BP}
         # as often used in S work as expected.
