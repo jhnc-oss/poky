@@ -1117,7 +1117,12 @@ def try_mirror_url(fetch, origud, ud, ld, check = False):
                     origud.method.build_mirror_data(origud, ld)
             return origud.localpath
         # Otherwise the result is a local file:// and we symlink to it
+        # This could also be a link to a shallow archive
         ensure_symlink(ud.localpath, origud.localpath)
+        # When using shallow mode, add a symlink to the original fullshallow
+        # path to ensure a valid symlink even in the `PREMIRRORS` case
+        if getattr(ud, 'shallow', False) and not os.path.exists(origud.fullshallow):
+            ensure_symlink(ud.localpath, origud.fullshallow)
         update_stamp(origud, ld)
         return ud.localpath
 
