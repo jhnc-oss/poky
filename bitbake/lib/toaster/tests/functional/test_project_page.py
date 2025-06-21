@@ -685,16 +685,12 @@ class TestProjectPage(TestProjectPageBase):
             'active', str(self.find('#information').get_attribute('class'))
         )
         # Check second tab (recipes)
-        # Ensure page is scrolled to the top
-        self.driver.find_element(By.XPATH, '//body').send_keys(Keys.CONTROL + Keys.HOME)
         self.wait_until_visible('.nav-tabs')
         tabs[1].click()
         self.assertIn(
             'active', str(self.find('#recipes').get_attribute('class'))
         )
         # Check third tab (machines)
-        # Ensure page is scrolled to the top
-        self.driver.find_element(By.XPATH, '//body').send_keys(Keys.CONTROL + Keys.HOME)
         self.wait_until_visible('.nav-tabs')
         tabs[2].click()
         self.assertIn(
