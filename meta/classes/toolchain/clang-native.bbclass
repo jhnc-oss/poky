@@ -16,3 +16,10 @@ BUILD_READELF = "${BUILD_PREFIX}llvm-readelf"
 DEPENDS += "clang-native libcxx-native compiler-rt-native"
 
 LDFLAGS += " --rtlib=libgcc --unwindlib=libgcc"
+
+# Some systems can have mixed gcc development headers, such as pieces of both gcc 13
+# and 14 which can cause build failures, particularly if libgcc and libstdc++ for
+# gcc 13 are present but only libgcc for gcc 14 and not libstdc++ when the gcc
+# version is gcc 13. Force the gcc install that matches gcc itself
+BUILD_CFLAGS:append:class-native = " --gcc-install-dir=$(dirname $(gcc -print-libgcc-file-name))"
+BUILD_CXXFLAGS:append:class-native = " --gcc-install-dir=$(dirname $(gcc -print-libgcc-file-name))"
