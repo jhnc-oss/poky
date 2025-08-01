@@ -33,7 +33,7 @@ class RunqemuTests(OESelftestTestCase):
         if self.machine == "qemux86-64":
             self.fstypes += " wic.vmdk wic.qcow2 wic.vdi wic.zst"
 
-        self.cmd_common = "runqemu nographic"
+        self.cmd_common = "runqemu nographic snapshot"
         kvm = oe.types.qemu_use_kvm(get_bb_var('QEMU_USE_KVM'), self.td["TARGET_ARCH"])
         if kvm:
             self.cmd_common += " kvm"
