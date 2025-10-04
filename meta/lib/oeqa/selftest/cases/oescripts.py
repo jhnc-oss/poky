@@ -18,6 +18,7 @@ class OEPybootchartguyTests(OESelftestTestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        self.write_config('INHERIT += "buildstats"')
         bitbake("core-image-minimal -c rootfs -f")
         cls.tmpdir = get_bb_var('TMPDIR')
         cls.buildstats = cls.tmpdir + "/buildstats/" + sorted(os.listdir(cls.tmpdir + "/buildstats"))[-1]
