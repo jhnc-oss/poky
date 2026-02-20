@@ -7360,6 +7360,148 @@ system and gives an overview of their function and contents.
 
          QA_EMPTY_DIRS_RECOMMENDATION:/dev = "but all devices must be created at runtime"
 
+   :term:`QB_CMDLINE_IP_SLIRP`
+
+      If :term:`QB_NETWORK_DEVICE` adds more than one network interface to QEMU,
+      usually the ``ip=`` Linux kernel command line argument needs to be changed
+      accordingly. The :term:`QB_CMDLINE_IP_SLIRP` variable allows controlling
+      this value. See the Linux kernel documentation for more details:
+      https://www.kernel.org/doc/Documentation/filesystems/nfs/nfsroot.txt.
+
+   :term:`QB_CMDLINE_IP_TAP`
+
+      This variable is similar to the :term:`QB_CMDLINE_IP_SLIRP` variable.
+
+      Use as follows::
+
+         QB_CMDLINE_IP_TAP = "ip=192.168.7.@CLIENT@::192.168.7.@GATEWAY@:255.255.255.0::eth0"
+
+      Since the tap interface requires static IP configuration, ``runqemu``
+      replaces the ``@CLIENT@`` and ``@GATEWAY@`` place holders by the IP and
+      the gateway address of the QEMU guest.
+
+   :term:`QB_DEFAULT_FSTYPE`
+
+      The :term:`QB_DEFAULT_FSTYPE` variable controls the default filesystem
+      type to boot. It is represented as the file extension of one of the root
+      filesystem image extension found in :term:`DEPLOY_DIR_IMAGE`. For example:
+      ``ext4.zst``.
+
+   :term:`QB_DEFAULT_KERNEL`
+
+      When using ``runqemu``, the :term:`QB_DEFAULT_KERNEL` variable controls
+      the default Linux kernel image to boot, found in :term:`DEPLOY_DIR_IMAGE`. For
+      example: ``bzImage``.
+
+   :term:`QB_DRIVE_TYPE`
+
+      When using ``runqemu``, the :term:`QB_DRIVE_TYPE` variable specifies the
+      type of drive to emulate when starting the emulated machine.
+      Valid values are:
+
+      -  ``/dev/hd``: emulates an IDE drive.
+      -  ``/dev/mmcblk``: emulates an SD Card.
+      -  ``/dev/sd``: emulates an SCSI drive.
+      -  ``/dev/vd``: emulates a VirtIO drive.
+      -  ``/dev/vdb``: emulates a block VirtIO drive.
+
+   :term:`QB_GRAPHICS`
+
+      When using ``runqemu``, the :term:`QB_GRAPHICS` variable controls the QEMU
+      video card type to emulate. For example: ``-vga std``.
+
+      This value is appended to the argument list when running ``qemu``.
+
+   :term:`QB_KERNEL_CMDLINE_APPEND`
+
+      The :term:`QB_KERNEL_CMDLINE_APPEND` variable controls the options passed
+      to the Linux kernel's ``-append`` QEMU options, which controls the Linux kernel
+      command-line.
+
+      For example::
+
+         QB_KERNEL_CMDLINE_APPEND = "console=ttyS0"
+
+   :term:`QB_MEM`
+
+      The :term:`QB_MEM` variable controls the amount of memory allocated to the
+      emulated machine. Specify as follows::
+
+         QB_MEM = "-m 512"
+
+   :term:`QB_NETWORK_DEVICE`
+
+      When using ``runqemu``, the :term:`QB_NETWORK_DEVICE` variable controls
+      the network device instantiated by QEMU. This value needs to be compatible
+      with the :term:`QB_TAP_OPT` variable.
+
+      Example::
+
+         QB_NETWORK_DEVICE = "-device virtio-net-pci,netdev=net0,mac=@MAC@"
+
+      ``runqemu`` replaces ``@MAC@`` with a predefined mac address.
+
+   :term:`QB_NFSROOTFS_EXTRA_OPT`
+
+      When using ``runqemu``, the :term:`QB_NFSROOTFS_EXTRA_OPT` variable
+      controls extra options to be appended to the NFS rootfs options in the
+      Linux kernel command-line.
+
+      For example::
+
+         QB_NFSROOTFS_EXTRA_OPT = "wsize=4096,rsize=4096"
+
+   :term:`QB_OPT_APPEND`
+
+      When using ``runqemu``, the :term:`QB_OPT_APPEND` variable controls
+      general options to append to QEMU when starting.
+
+   :term:`QB_RNG`
+
+      When using ``runqemu``, the :term:`QB_RNG` variable controls
+      pass-through for host random number generator, it can speedup boot
+      in system mode, where system is experiencing entropy starvation.
+
+      For example::
+
+         QB_RNG = "-object rng-random,filename=/dev/urandom,id=rng0 -device virtio-rng-pci,rng=rng0"
+
+   :term:`QB_ROOTFS_EXTRA_OPT`
+
+      When using ``runqemu``, the :term:`QB_ROOTFS_EXTRA_OPT` variable controls
+      extra options to be appended to the rootfs device options.
+
+   :term:`QB_SERIAL_OPT`
+
+      When using ``runqemu``, the :term:`QB_SERIAL_OPT` variable controls the
+      serial port option.
+
+      For example::
+
+         QB_SERIAL_OPT = "-serial mon:stdio"
+
+   :term:`QB_SMP`
+
+      When using ``runqemu``, the :term:`QB_SMP` variable controls
+      amount of CPU cores made availalble inside the QEMU guest, each mapped to
+      a thread on the host.
+
+      For example::
+
+         QB_SMP = "-smp 8".
+
+   :term:`QB_TAP_OPT`
+
+      When using ``runqemu``, the :term:`QB_TAP_OPT` variable controls
+      the network option for "tap" mode.
+
+      For example::
+
+         QB_TAP_OPT = "-netdev tap,id=net0,ifname=@TAP@,script=no,downscript=no"
+
+      Note that ``runqemu`` will replace ``@TAP@`` with the tap interface in
+      use, such as ``tap0``, ``tap1``, etc.
+
    :term:`RANLIB`
       The minimal command and arguments to run :manpage:`ranlib <ranlib(1)>`.
 
