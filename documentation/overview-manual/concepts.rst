@@ -454,7 +454,7 @@ typically find in the distribution layer:
    (``conf/distro/distro.conf``), and any distribution-wide include
    files.
 
--  *recipes-*:* Recipes and append files that affect common
+-  *recipes-\*:* Recipes and append files that affect common
    functionality across the distribution. This area could include
    recipes and append files to add distribution-specific configuration,
    initialization scripts, custom image recipes, and so forth. Examples
