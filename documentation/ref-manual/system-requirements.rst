@@ -84,6 +84,7 @@ organizations publishing them no longer make updates publicly available:
 
 -  Fedora 39
 -  Fedora 40
+-  Fedora 41
 
 Note that the Yocto Project doesn't have access to private updates
 that some of these versions may have. Therefore, our testing has
