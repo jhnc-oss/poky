@@ -6349,8 +6349,8 @@ system and gives an overview of their function and contents.
       an iterative development process to remove specific components from a
       system.
 
-      This variable is supported only when using the IPK and RPM
-      packaging backends. DEB is not supported.
+      This variable is supported by all of the RPM, DEB and IPK
+      packaging backends.
 
       See the :term:`NO_RECOMMENDATIONS` and the
       :term:`BAD_RECOMMENDATIONS` variables for
