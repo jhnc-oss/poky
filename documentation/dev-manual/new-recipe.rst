@@ -976,11 +976,10 @@ kernel recipe you want by using the :term:`PREFERRED_PROVIDER` variable. As
 an example, consider the :yocto_git:`x86-base.inc
 </poky/tree/meta/conf/machine/include/x86/x86-base.inc>` include file, which is a
 machine (i.e. :term:`MACHINE`) configuration file. This include file is the
-reason all x86-based machines use the ``linux-yocto`` kernel. Here are the
-relevant lines from the include file::
+reason all x86-based machines use the ``linux-yocto`` kernel. Here is the
+relevant line from that include file::
 
    PREFERRED_PROVIDER_virtual/kernel ??= "linux-yocto"
-   PREFERRED_VERSION_linux-yocto ??= "4.15%"
 
 When you use a virtual provider, you do not have to "hard code" a recipe
 name as a build dependency. You can use the
