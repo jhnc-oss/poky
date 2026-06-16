@@ -7533,6 +7533,12 @@ system and gives an overview of their function and contents.
       specifies a list of recipes whose work directories should not be removed.
       See the ":ref:`ref-classes-rm-work`" section for more details.
 
+   :term:`RM_WORK_EXCLUDE_ITEMS`
+      With :ref:`ref-classes-rm-work` enabled, this variable specifies
+      a list of files or folders --- relative to the recipe's :term:`WORKDIR` ---
+      to be preserved.
+      See the ":ref:`ref-classes-rm-work`" section for more details.
+
    :term:`ROOT_HOME`
       Defines the root home directory. By default, this directory is set as
       follows in the BitBake configuration file::
