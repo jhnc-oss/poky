@@ -2404,6 +2404,18 @@ section in the Yocto Project Development Tasks Manual.
 
 Previously, this class was called the ``task`` class.
 
+.. note::
+
+   If you're defining a packagegroup and need to set::
+
+      PACKAGE_ARCH = "${MACHINE_ARCH}"
+
+   for the packagegroup, you need to do that *before* the
+   ``inherit packagegroup`` line in the recipe file.
+   Setting it afterward can break BitBake parsing, result in
+   an "allarch" architecture mismatch error, or allow
+   architecture-independent defaults to override your intent.
+
 .. _ref-classes-patch:
 
 ``patch``
