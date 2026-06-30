@@ -3988,6 +3988,21 @@ system and gives an overview of their function and contents.
             or ``:prepend``. You must use the ``+=`` operator to add one or
             more options to the :term:`IMAGE_FSTYPES` variable.
 
+   :term:`IMAGE_FSTYPES_DEBUGFS`
+      The :term:`IMAGE_FSTYPES_DEBUGFS` holds a list of filesystem image types
+      to generate when the :term:`IMAGE_GEN_DEBUGFS` variable is set to "1". The
+      content of this variable is the same as what is supported by the
+      :term:`IMAGE_FSTYPES` variable.
+
+   :term:`IMAGE_GEN_DEBUGFS`
+      When set to "1" in an :ref:`ref-classes-image` recipe, the
+      :term:`OpenEmbedded Build System` will generate a companion image that
+      contains the debug symbols and source code for the packages installed on
+      the image. The :term:`OpenEmbedded Build System` does this by adding all
+      the available ``-dbg`` and ``-src`` packages available in the package
+      feed, which are automatically generated during
+      :ref:`overview-manual/concepts:Package Splitting`.
+
    :term:`IMAGE_INSTALL`
       Used by recipes to specify the packages to install into an image
       through the :ref:`ref-classes-image` class. Use the
