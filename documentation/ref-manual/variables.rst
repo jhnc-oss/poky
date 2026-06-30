@@ -5573,6 +5573,13 @@ system and gives an overview of their function and contents.
       :ref:`overview-manual/concepts:Package Splitting`. The list
       contains ``${datadir}/locale`` by default.
 
+   :term:`LOCALE_UTF8_IS_DEFAULT`
+      If set, locale names are renamed such that those lacking an explicit
+      encoding (e.g. ``en_US``) will always be UTF-8, and non-UTF-8 encodings
+      are renamed to, e.g., ``en_US.ISO-8859-1``. Otherwise, the encoding is
+      specified by `Glibc`'s ``SUPPORTED`` file. This is not supported for
+      pre-compiled locales.
+
    :term:`LOG_DIR`
       Specifies the directory to which the OpenEmbedded build system writes
       overall log files. The default directory is ``${TMPDIR}/log``.
