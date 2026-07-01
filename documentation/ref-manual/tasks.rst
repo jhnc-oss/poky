@@ -658,7 +658,7 @@ When invoked by the user, this task creates a file containing the
 differences between the original config as produced by
 :ref:`ref-tasks-kernel_configme` task and the
 changes made by the user with other methods (i.e. using
-(:ref:`ref-tasks-kernel_menuconfig`). Once the
+(:ref:`ref-tasks-menuconfig`). Once the
 file of differences is created, it can be used to create a config
 fragment that only contains the differences. You can invoke this task
 from the command line as follows::
@@ -686,7 +686,7 @@ kernel with the correct branches checked out.
 -------------------------
 
 Validates the configuration produced by the
-:ref:`ref-tasks-kernel_menuconfig` task. The
+:ref:`ref-tasks-menuconfig` task. The
 :ref:`ref-tasks-kernel_configcheck` task produces warnings when a requested
 configuration does not appear in the final ``.config`` file or when you
 override a policy configuration in a hardware configuration fragment.
@@ -711,26 +711,6 @@ passed to the kernel configuration phase proper. This is also the time
 during which user-specified defconfigs are applied if present, and where
 configuration modes such as ``--allnoconfig`` are applied.
 
-.. _ref-tasks-kernel_menuconfig:
-
-``do_kernel_menuconfig``
-------------------------
-
-Invoked by the user to manipulate the ``.config`` file used to build a
-linux-yocto recipe. This task starts the Linux kernel configuration
-tool, which you then use to modify the kernel configuration.
-
-.. note::
-
-   You can also invoke this tool from the command line as follows::
-
-           $ bitbake linux-yocto -c menuconfig
-
-
-See the ":ref:`kernel-dev/common:using ``menuconfig```"
-section in the Yocto Project Linux Kernel Development Manual for more
-information on this configuration tool.
-
 .. _ref-tasks-kernel_metadata:
 
 ``do_kernel_metadata``
@@ -749,10 +729,19 @@ which can then be applied by subsequent tasks such as
 ``do_menuconfig``
 -----------------
 
-Runs ``make menuconfig`` for the kernel. For information on
-``menuconfig``, see the
-":ref:`kernel-dev/common:using ``menuconfig```"
-section in the Yocto Project Linux Kernel Development Manual.
+Invoked by the user to manipulate the ``.config`` file used to build a
+linux-yocto recipe. This task starts the Linux kernel configuration
+tool, which you then use to modify the kernel configuration.
+
+You can invoke this tool from the command line as follows:
+
+.. code-block:: console
+
+   $ bitbake linux-yocto -c menuconfig
+
+See the ":ref:`kernel-dev/common:using ``menuconfig```"
+section in the Yocto Project Linux Kernel Development Manual for more
+information on this configuration tool.
 
 .. _ref-tasks-savedefconfig:
 
@@ -763,7 +752,7 @@ When invoked by the user, creates a defconfig file that can be used
 instead of the default defconfig. The saved defconfig contains the
 differences between the default defconfig and the changes made by the
 user using other methods (i.e. the
-:ref:`ref-tasks-kernel_menuconfig` task. You
+:ref:`ref-tasks-menuconfig` task. You
 can invoke the task using the following command::
 
    $ bitbake linux-yocto -c savedefconfig
