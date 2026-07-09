@@ -774,11 +774,10 @@ can successfully build the kernel modules in the next step of the build.
 ``do_sizecheck``
 ----------------
 
-After the kernel has been built, this task checks the size of the
-stripped kernel image against
-:term:`KERNEL_IMAGE_MAXSIZE`. If that
-variable was set and the size of the stripped kernel exceeds that size,
-the kernel build produces a warning to that effect.
+If the variable :term:`KERNEL_IMAGE_MAXSIZE` is set, this task compares
+the size of all stripped kernel images listed in :term:`KERNEL_IMAGETYPES`
+against that value. If more than one image type is listed there, warn on
+any that exceed that value, but fail only if none of them fit.
 
 .. _ref-tasks-strip:
 
