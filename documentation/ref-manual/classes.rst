@@ -2327,11 +2327,8 @@ consider some further things about using RPM:
    perform on-device upgrades.
 
 You can find additional information on the effects of the package class
-at these two Yocto Project mailing list links:
-
--  :yocto_lists:`/pipermail/poky/2011-May/006362.html`
-
--  :yocto_lists:`/pipermail/poky/2011-May/006363.html`
+at this Yocto Project mailing list link:
+:yocto_lists:`/g/poky/topic/61292484#msg6286`
 
 .. _ref-classes-package_deb:
 
