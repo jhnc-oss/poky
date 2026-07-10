@@ -784,10 +784,18 @@ any that exceed that value, but fail only if none of them fit.
 ``do_strip``
 ------------
 
-If ``KERNEL_IMAGE_STRIP_EXTRA_SECTIONS`` is defined, this task strips
+If :term:`KERNEL_IMAGE_STRIP_EXTRA_SECTIONS` is defined, this task strips
 the sections named in that variable from ``vmlinux``. This stripping is
 typically used to remove nonessential sections such as ``.comment``
 sections from a size-sensitive configuration.
+
+Common sections to strip:
+
+-  ``.comment``: Holds compiler version strings and information
+
+-  ``.note.*``: Extra notes often left by the compiler
+
+-  ``.debug``: Debugging information
 
 .. _ref-tasks-validate_branches:
 

@@ -5131,6 +5131,13 @@ system and gives an overview of their function and contents.
 
       See :term:`KERNEL_ARTIFACT_NAME` for additional information.
 
+   :term:`KERNEL_IMAGE_STRIP_EXTRA_SECTIONS`
+      If this variable is set, it should contain the sections to be
+      stripped from the ``vmlinux`` image by the kernel-related
+      :ref:`ref-tasks-strip` task. As a simple example::
+
+         KERNEL_IMAGE_STRIP_EXTRA_SECTIONS = ".comment .note.* .debug"
+
    :term:`KERNEL_IMAGETYPE`
       The type of kernel to build for a device, usually set by the machine
       configuration files and defaults to "zImage". This variable is used
