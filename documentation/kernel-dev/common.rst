@@ -696,21 +696,6 @@ the ":ref:`kernel-dev/common:getting ready to develop using ``devtool```" Sectio
 
       $ devtool modify linux-yocto
 
-   .. note::
-
-      During the checkout operation, there is a bug that could cause
-      errors such as the following:
-
-      .. code-block:: none
-
-              ERROR: Taskhash mismatch 2c793438c2d9f8c3681fd5f7bc819efa versus
-                     be3a89ce7c47178880ba7bf6293d7404 for
-                     /path/to/esdk/layers/poky/meta/recipes-kernel/linux/linux-yocto_4.10.bb.do_unpack
-
-
-      You can safely ignore these messages. The source code is correctly
-      checked out.
-
 #. *Edit the Source Files* Follow these steps to make some simple
    changes to the source files:
 
