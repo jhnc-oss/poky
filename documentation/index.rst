@@ -26,8 +26,6 @@ Get started using the Yocto Project.
    Quick Build <brief-yoctoprojectqs/index>
    what-i-wish-id-known
    transitioning-to-a-custom-environment
-   Yocto Project Technical Overview <https://www.yoctoproject.org/development/technical-overview/>
-   Tips and Tricks Wiki <https://wiki.yoctoproject.org/wiki/TipsAndTricks>
 
 Get familiar with the development environment and concepts of the Yocto Project.
 
@@ -35,6 +33,11 @@ Get familiar with the development environment and concepts of the Yocto Project.
    :maxdepth: 2
 
    Overview and Concepts <overview-manual/index>
+
+Additional introductory resources.
+
+-  `Technical Overview (external website) <https://www.yoctoproject.org/development/technical-overview/>`__
+-  `Tips and Tricks Wiki (external website) <https://wiki.yoctoproject.org/wiki/TipsAndTricks>`__
 
 Contributing to the Yocto Project
 =================================
