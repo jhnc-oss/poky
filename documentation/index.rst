@@ -82,12 +82,22 @@ Security-related processes and contact information for vulnerability reporting.
 
    Yocto Project Security Reference <security-reference/index>
 
+Release Information
+===================
+
+Release notes and migration guides for the different Yocto Project releases.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Release Information
+
+   Release Notes and Migration Guides <migration-guides/index>
+
 .. toctree::
    :maxdepth: 1
    :caption: Release Manuals
    :hidden:
 
-   Release Information <migration-guides/index>
    releases
 
 .. toctree::
