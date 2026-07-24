@@ -29,6 +29,13 @@ Get started using the Yocto Project.
    Yocto Project Technical Overview <https://www.yoctoproject.org/development/technical-overview/>
    Tips and Tricks Wiki <https://wiki.yoctoproject.org/wiki/TipsAndTricks>
 
+Get familiar with the development environment and concepts of the Yocto Project.
+
+.. toctree::
+   :maxdepth: 2
+
+   Overview and Concepts <overview-manual/index>
+
 Contributing to the Yocto Project
 =================================
 
@@ -51,7 +58,6 @@ infrastructure.
    :maxdepth: 1
    :caption: Manuals
 
-   Overview and Concepts Manual <overview-manual/index>
    Reference Manual <ref-manual/index>
    Board Support Package (BSP) Developer's guide <bsp-guide/index>
    Development Tasks Manual <dev-manual/index>
