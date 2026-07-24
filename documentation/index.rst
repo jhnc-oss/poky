@@ -5,10 +5,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+==========================================
 Welcome to the Yocto Project Documentation
 ==========================================
 
-|
+This is the top level of the Yocto Project documentation tree. The Yocto Project
+documentation is always a work in progress, just like the Yocto Project itself.
+Improvements to the documentation are always welcome; join the
+:yocto_lists:`docs mailing list </g/docs>` if you want to help out.
+
+Introduction and Overview
+=========================
+
+Get started using the Yocto Project.
 
 .. toctree::
    :maxdepth: 1
@@ -19,6 +28,13 @@ Welcome to the Yocto Project Documentation
    transitioning-to-a-custom-environment
    Yocto Project Technical Overview <https://www.yoctoproject.org/development/technical-overview/>
    Tips and Tricks Wiki <https://wiki.yoctoproject.org/wiki/TipsAndTricks>
+
+Manuals
+=======
+
+A collection of manuals covering many aspects of the Yocto Project, including
+reference definitions, tutorials, and details about the project's
+infrastructure.
 
 .. toctree::
    :maxdepth: 1
@@ -36,9 +52,14 @@ Welcome to the Yocto Project Documentation
    Test Environment Manual <test-manual/index>
    bitbake
 
+Security Reference
+==================
+
+Security-related processes and contact information for vulnerability reporting.
+
 .. toctree::
    :maxdepth: 1
-   :caption: Security
+   :caption: Security Reference
 
    Yocto Project Security Reference <security-reference/index>
 
