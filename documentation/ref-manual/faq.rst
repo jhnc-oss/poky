@@ -105,7 +105,8 @@ attempt before any others by adding something like the following to the
        git://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
        ftp://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
        http://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
-       https://.*/.* &YOCTO_DL_URL;/mirror/sources/"
+       https://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
+   "
 
 These changes cause the build system to intercept Git, FTP, HTTP, and
 HTTPS requests and direct them to the ``http://`` sources mirror. You
@@ -144,7 +145,8 @@ file as long as the :term:`PREMIRRORS` server is current::
        git://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
        ftp://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
        http://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
-       https://.*/.* &YOCTO_DL_URL;/mirror/sources/"
+       https://.*/.* &YOCTO_DL_URL;/mirror/sources/ \
+   "
    BB_FETCH_PREMIRRORONLY = "1"
 
 These changes would cause the build system to successfully fetch source
