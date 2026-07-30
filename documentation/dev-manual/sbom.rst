@@ -31,9 +31,18 @@ If needed, it can be disabled from a :term:`configuration file`::
 
    INHERIT_DISTRO:remove = "create-spdx"
 
+SPDX version 3 support is available on Yocto &DISTRO_NAME;, but disabled by
+default. To enable it, add the following statements from a :term:`configuration
+file`::
+
+   INHERIT_DISTRO:remove = "create-spdx"
+   INHERIT_DISTRO:append = " create-spdx-3.0"
+
+The following documentation will make the assumption that SPDX3 is used.
+
 Upon building an image, you will then get the compressed archive
-``IMAGE-MACHINE.spdx.tar.zst`` contains the index and the files for the single
-recipes.
+``IMAGE-MACHINE.spdx.json`` file in ``tmp/deploy/images/MACHINE/`` inside
+the :term:`Build Directory`.
 
 The :ref:`ref-classes-create-spdx` class offers options to include
 more information in the output :term:`SPDX` data:
@@ -50,19 +59,7 @@ more information in the output :term:`SPDX` data:
 
 Though the toplevel :term:`SPDX` output is available in
 ``tmp/deploy/images/MACHINE/`` inside the :term:`Build Directory`, ancillary
-generated files are available in ``tmp/deploy/spdx`` too, such as:
-
--  The individual :term:`SPDX` JSON files in the ``IMAGE-MACHINE.spdx.tar.zst``
-   archive.
-
--  Compressed archives of the files in the generated target packages,
-   in ``packages/packagename.tar.zst`` (when :term:`SPDX_ARCHIVE_PACKAGED`
-   is set).
-
--  Compressed archives of the source files used to build the host tools
-   and the target packages in ``recipes/recipe-packagename.tar.zst``
-   (when :term:`SPDX_ARCHIVE_SOURCES` is set). Those are needed to fulfill
-   "source code access" license requirements.
+generated files are available in ``tmp/deploy/spdx`` too.
 
 See also the :term:`SPDX_CUSTOM_ANNOTATION_VARS` variable which allows
 to associate custom notes to a recipe.
