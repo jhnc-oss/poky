@@ -19,11 +19,8 @@ build a reference embedded OS called Poky.
       you want to use Yocto Project on to build an image
       (:term:`Build Host`) is not
       a native Linux system, you can still perform these steps by using
-      CROss PlatformS (CROPS) and setting up a Poky container. See the
-      :ref:`dev-manual/start:setting up to use cross platforms (crops)`
-      section
-      in the Yocto Project Development Tasks Manual for more
-      information.
+      an :wikipedia:`OCI container <Open_Container_Initiative>` (using
+      `Docker <https://www.docker.com/>`__ or `Podman <https://podman.io/>`__).
 
    -  You may use version 2 of Windows Subsystem For Linux (WSL 2) to set
       up a build host using Windows 10 or later, Windows Server 2019 or later.

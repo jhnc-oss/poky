@@ -147,8 +147,7 @@ section.
 #. *Set Up the Build Environment:* Be sure you are set up to use BitBake
    in a shell. See the ":ref:`dev-manual/start:preparing the build host`"
    section in the Yocto Project Development Tasks Manual for information on how
-   to get a build host ready that is either a native Linux machine or a machine
-   that uses CROPS.
+   to get a :term:`build host` ready.
 
 #. *Clone the poky Repository:* You need to have a local copy of the
    Yocto Project :term:`Source Directory` (i.e. a local
