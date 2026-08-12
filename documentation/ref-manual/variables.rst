@@ -7380,6 +7380,25 @@ system and gives an overview of their function and contents.
       replaces the ``@CLIENT@`` and ``@GATEWAY@`` place holders by the IP and
       the gateway address of the QEMU guest.
 
+   :term:`QB_DEFAULT_BIOS`
+      The :term:`QB_DEFAULT_BIOS` variable can be used to provide a default
+      value for the path of a file located in :term:`DEPLOY_DIR_IMAGE` and
+      used by ``runqemu`` to specify the `-bios <https://www.qemu.org/docs/master/system/invocation.html#hxtool-8>`__
+      option of QEMU. For example, this variable can be set as follows to
+      emulate U-Boot for the :oecore_path:`qemuarm64 <meta/conf/machine/qemuarm64.conf>`
+      machine::
+
+         QB_DEFAULT_BIOS = "u-boot.bin"
+
+      The above example makes the assumption the U-Boot recipe was built
+      and that the ``u-boot.bin`` is deployed in the :term:`DEPLOY_DIR_IMAGE`
+      directory.
+
+      .. note::
+
+         When using ``runqemu``, the ``BIOS`` environment variable takes
+         precedence over this variable.
+
    :term:`QB_DEFAULT_FSTYPE`
 
       The :term:`QB_DEFAULT_FSTYPE` variable controls the default filesystem
