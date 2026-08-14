@@ -515,7 +515,7 @@ by the :term:`SPDX_PRETTY`, :term:`SPDX_ARCHIVE_PACKAGED`,
 
 See the description of these variables and the
 ":ref:`dev-manual/sbom:creating a software bill of materials`"
-section in the Yocto Project Development Manual for more details.
+section in the Yocto Project Development Tasks Manual for more details.
 
 .. _ref-classes-cross:
 
@@ -2686,7 +2686,7 @@ This class is intended to be inherited by individual recipes. However,
 the class' functionality is largely disabled unless "ptest" appears in
 :term:`DISTRO_FEATURES`. See the
 ":ref:`test-manual/ptest:testing packages with ptest`"
-section in the Yocto Project Development Tasks Manual for more information
+section in the Yocto Project Test Environment Manual for more information
 on ptest.
 
 .. _ref-classes-ptest-cargo:
@@ -2710,7 +2710,7 @@ have tests intended to be executed with ``gnome-desktop-testing``.
 
 For information on setting up and running ptests, see the
 ":ref:`test-manual/ptest:testing packages with ptest`"
-section in the Yocto Project Development Tasks Manual.
+section in the Yocto Project Test Environment Manual.
 
 .. _ref-classes-python3-dir:
 

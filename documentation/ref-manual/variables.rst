@@ -10067,7 +10067,8 @@ system and gives an overview of their function and contents.
       For background information on cross-development toolchains in the
       Yocto Project development environment, see the
       ":ref:`sdk-manual/intro:the cross-development toolchain`"
-      section in the Yocto Project Overview and Concepts Manual. For
+      section in the Yocto Project Application Development and Software
+      Development Kits (SDK/eSDK) Manual. For
       information on setting up a cross-development environment, see the
       :doc:`/sdk-manual/index` manual.
 
@@ -10115,7 +10116,8 @@ system and gives an overview of their function and contents.
       For background information on cross-development toolchains in the
       Yocto Project development environment, see the
       ":ref:`sdk-manual/intro:the cross-development toolchain`"
-      section in the Yocto Project Overview and Concepts Manual. For
+      section in the Yocto Project Application Development and Software
+      Development Kits (SDK/eSDK) Manual. For
       information on setting up a cross-development environment, see the
       :doc:`/sdk-manual/index` manual.
 
