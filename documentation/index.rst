@@ -9,10 +9,12 @@
 Welcome to the Yocto Project Documentation
 ==========================================
 
-This is the top level of the Yocto Project documentation tree. The Yocto Project
-documentation is always a work in progress, just like the Yocto Project itself.
-Improvements to the documentation are always welcome; join the
-:yocto_lists:`docs mailing list </g/docs>` if you want to help out.
+.. only:: html
+
+   This is the top level of the Yocto Project documentation tree. The Yocto
+   Project documentation is always a work in progress, just like the Yocto
+   Project itself. Improvements to the documentation are always welcome; join
+   the :yocto_lists:`docs mailing list </g/docs>` if you want to help out.
 
 Introduction and Overview
 =========================
