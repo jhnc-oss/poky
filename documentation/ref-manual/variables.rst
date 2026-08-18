@@ -6773,6 +6773,12 @@ system and gives an overview of their function and contents.
       :ref:`ref-tasks-configure` task, then you need to use
       :term:`PACKAGECONFIG_CONFARGS` appropriately.
 
+   :term:`PACKAGEFUNCS`
+      The :term:`PACKAGEFUNCS` variable holds a list of functions which are
+      executed to process metadata based on split packages found in the
+      :term:`PKGDEST` directory. These functions are executed in the
+      :ref:`ref-classes-package` class in the order found in the list.
+
    :term:`PACKAGEGROUP_DISABLE_COMPLEMENTARY`
       For recipes inheriting the :ref:`ref-classes-packagegroup` class, setting
       :term:`PACKAGEGROUP_DISABLE_COMPLEMENTARY` to "1" specifies that the
