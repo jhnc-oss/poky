@@ -60,7 +60,7 @@ repository unto itself and clicking on the layer name displays two URLs
 from which you can clone the layer's repository to your local system.
 Here is an example that clones the Raspberry Pi BSP layer::
 
-   $ git clone git://git.yoctoproject.org/meta-raspberrypi
+   $ git clone https://git.yoctoproject.org/meta-raspberrypi
 
 In addition to BSP layers, the ``meta-yocto-bsp`` layer is part of the
 shipped ``poky`` repository. The ``meta-yocto-bsp`` layer maintains
@@ -181,7 +181,7 @@ section.
 
    #. *Clone the Layer:* ::
 
-         $ git clone git://git.yoctoproject.org/meta-intel.git
+         $ git clone https://git.yoctoproject.org/meta-intel.git
          Cloning into 'meta-intel'...
          remote: Counting objects: 15585, done.
          remote: Compressing objects: 100% (5056/5056), done.
@@ -217,7 +217,7 @@ section.
    your hardware most closely matches the ``meta-raspberrypi``, clone
    that layer::
 
-      $ git clone git://git.yoctoproject.org/meta-raspberrypi
+      $ git clone https://git.yoctoproject.org/meta-raspberrypi
       Cloning into 'meta-raspberrypi'...
       remote: Counting objects: 4743, done.
       remote: Compressing objects: 100% (2185/2185), done.

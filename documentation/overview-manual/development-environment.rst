@@ -424,7 +424,7 @@ development branch in the repository. To help illustrate, consider the
 following example Git commands::
 
    $ cd ~
-   $ git clone git://git.yoctoproject.org/poky -b &DISTRO_NAME_NO_CAP;
+   $ git clone https://git.yoctoproject.org/poky -b &DISTRO_NAME_NO_CAP;
 
 In the previous example
 after moving to the home directory, the ``git clone`` command creates a
@@ -464,7 +464,7 @@ The most common use is to check out a working branch that matches a
 specific Yocto Project release. Here is an example::
 
    $ cd ~
-   $ git clone git://git.yoctoproject.org/poky
+   $ git clone https://git.yoctoproject.org/poky
    $ cd poky
    $ git fetch --tags
    $ git checkout tags/rocko-18.0.0 -b my_rocko-18.0.0

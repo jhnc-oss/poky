@@ -277,7 +277,7 @@ release selection:
    <!-- Bitbake versions which correspond to the metadata release -->
    <object model="orm.bitbakeversion" pk="1">
       <field type="CharField" name="name">&DISTRO_NAME_NO_CAP;</field>
-      <field type="CharField" name="giturl">git://git.yoctoproject.org/poky</field>
+      <field type="CharField" name="giturl">https://git.yoctoproject.org/poky</field>
       <field type="CharField" name="branch">&DISTRO_NAME_NO_CAP;</field>
       <field type="CharField" name="dirpath">bitbake</field>
    </object>
@@ -331,7 +331,7 @@ that includes the layer. In general all releases include the layer.
    <object model="orm.layer" pk="1">
       <field type="CharField" name="name">openembedded-core</field>
       <field type="CharField" name="layer_index_url"></field>
-      <field type="CharField" name="vcs_url">git://git.yoctoproject.org/poky</field>
+      <field type="CharField" name="vcs_url">https://git.yoctoproject.org/poky</field>
       <field type="CharField" name="vcs_web_url">https://git.yoctoproject.org/cgit/cgit.cgi/poky</field>
       <field type="CharField" name="vcs_web_tree_base_url">https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/%path%?h=%branch%</field>
       <field type="CharField" name="vcs_web_file_base_url">https://git.yoctoproject.org/cgit/cgit.cgi/poky/tree/%path%?h=%branch%</field>

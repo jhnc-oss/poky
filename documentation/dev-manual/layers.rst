@@ -985,13 +985,13 @@ above:
 
       Setting up source meta-intel, revision 15.0-hardknott-3.3-310-g0a96edae, branch master
       Running 'git init -q /srv/work/alex/my-build/meta-intel'
-      Running 'git remote remove origin > /dev/null 2>&1; git remote add origin git://git.yoctoproject.org/meta-intel' in /srv/work/alex/my-build/meta-intel
+      Running 'git remote remove origin > /dev/null 2>&1; git remote add origin https://git.yoctoproject.org/meta-intel' in /srv/work/alex/my-build/meta-intel
       Running 'git fetch -q origin || true' in /srv/work/alex/my-build/meta-intel
       Running 'git checkout -q 0a96edae609a3f48befac36af82cf1eed6786b4a' in /srv/work/alex/my-build/meta-intel
 
       Setting up source poky, revision 4.1_M1-372-g55483d28f2, branch akanavin/setup-layers
       Running 'git init -q /srv/work/alex/my-build/poky'
-      Running 'git remote remove origin > /dev/null 2>&1; git remote add origin git://git.yoctoproject.org/poky' in /srv/work/alex/my-build/poky
+      Running 'git remote remove origin > /dev/null 2>&1; git remote add origin https://git.yoctoproject.org/poky' in /srv/work/alex/my-build/poky
       Running 'git fetch -q origin || true' in /srv/work/alex/my-build/poky
       Running 'git remote remove poky-contrib > /dev/null 2>&1; git remote add poky-contrib ssh://git@push.yoctoproject.org/poky-contrib' in /srv/work/alex/my-build/poky
       Running 'git fetch -q poky-contrib || true' in /srv/work/alex/my-build/poky

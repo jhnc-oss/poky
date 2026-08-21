@@ -22,7 +22,7 @@ these instances.
                              a local Git repository based on this upstream
                              repository as follows:
 
-                               git clone git://git.yoctoproject.org/yocto-docs
+                               git clone https://git.yoctoproject.org/yocto-docs
 
                              Changes and patches are first pushed to the
                              yocto-docs Git repository.  Later, they make it
