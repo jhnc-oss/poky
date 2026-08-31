@@ -408,7 +408,7 @@ itemizes all builds in progress. This file includes the time in seconds since
 each respective build started as well as the progress of the cloning, parsing,
 and task execution. Here is sample output for a build in progress:
 
-.. code-block:: JSON
+.. code-block:: json
 
    {"count": 1,
     "building": [
@@ -442,7 +442,7 @@ Be sure to provide values for host and port. The output is a JSON file that
 itemizes all complete builds, and includes build summary information. Here
 is sample output for a completed build:
 
-.. code-block:: JSON
+.. code-block:: json
 
    {"count": 1,
     "builds": [
@@ -481,7 +481,7 @@ The output is a JSON file that itemizes the specific build and includes
 build summary information. Here is sample output for a specific
 build:
 
-.. code-block:: JSON
+.. code-block:: json
 
    {"build":
       {"distro": "poky",
