@@ -1043,7 +1043,7 @@ correctly trigger an upgrade.
 In order to ensure the versions compare properly, the recommended
 convention is to use a tilde (``~``) character as follows::
 
-  PV = 0.8.16~rc1
+  PV = "0.8.16~rc1"
 
 This way ``0.8.16~rc1`` sorts before ``0.8.16``. See the
 ":ref:`contributor-guide/recipe-style-guide:version policy`" section in the
@@ -1626,7 +1626,7 @@ in the BitBake User Manual.
    You indicate Python code using the ``${@python_code}`` syntax for the
    variable assignment::
 
-      SRC_URI = "ftp://ftp.info-zip.org/pub/infozip/src/zip${@d.getVar('PV',1).replace('.', '')}.tgz
+      SRC_URI = "ftp://ftp.info-zip.org/pub/infozip/src/zip${@d.getVar('PV',1).replace('.', '')}.tgz"
 
 -  *Shell Function Syntax:* Write shell functions as if you were writing
    a shell script when you describe a list of actions to take. You
