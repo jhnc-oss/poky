@@ -7555,7 +7555,7 @@ system and gives an overview of their function and contents.
    :term:`QB_SMP`
 
       When using ``runqemu``, the :term:`QB_SMP` variable controls
-      amount of CPU cores made availalble inside the QEMU guest, each mapped to
+      amount of CPU cores made available inside the QEMU guest, each mapped to
       a thread on the host.
 
       For example::
